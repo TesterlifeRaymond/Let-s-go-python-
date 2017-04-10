@@ -3,10 +3,10 @@
 # -*- coding: utf-8 -*-
 # @Author: liujinjia
 # @Date:   2017-04-06 06:51:02
-# @FileName:  second.py
+# @FileName:  python_data_type.py
 # @Project: devops
-# @Last Modified by:   jinjialiu
-# @Last Modified time: 2017-04-10 07:36:32
+# @Last Modified by:   Ray
+# @Last Modified time: 2017-04-10 09:58:08
 """
 import json     # import 在python中 是引入包的模块
 
