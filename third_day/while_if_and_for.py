@@ -6,7 +6,7 @@
 # @FileName:  while_if_and_for.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-12 07:29:47
+# @Last Modified time: 2017-04-12 07:40:39
 """
 # switch = 1
 #   如果 swich = 真  bool True
@@ -157,3 +157,21 @@ print([item for index, item in enumerate(table) if index in (5, 10, 15)])
 #         print(item)
 
 # print(list(x for x in range(5, 30, 5))[0:3])
+
+# 2017 04 11 作业解答
+# 1：常用的换行操作 \n   """ \ """多行换行   ("text" "text")
+# 2： 字符串拼接的常用方法有3种
+#     2.1 ： string + string
+#     2.2 : "%s 是一个中国人" % ('胖儿')
+#     2.3 : "是他，是他就是他， 他的名字叫做 {}".format('小哪吒')
+
+# 3： 字符串索引中 第一个索引是0 最后一位索引是-1
+# 4: 字符串中 \ 有可能代表两种意图
+#     4.1 ：字符转义 比如 print('\'')
+#     4.2 :  在多行字符串换行时的结束符
+
+# 5：对list进行去重的方法 set(list), 而获取list中某个元素出现的次数
+# 可以使用list.count(param)来获取
+
+# 6： while语句的作用是无限循环
+# 7： 退出while语句可以使用break关键字来退出
