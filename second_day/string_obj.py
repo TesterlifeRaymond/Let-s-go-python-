@@ -6,7 +6,7 @@
 # @FileName:  string_obj.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-11 07:13:56
+# @Last Modified time: 2017-04-11 07:37:15
 """
 
 # print(r'C:\some\name')   # C:\some\name    r''

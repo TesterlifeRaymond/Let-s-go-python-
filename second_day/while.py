@@ -6,7 +6,7 @@
 # @FileName:  while.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-11 07:32:51
+# @Last Modified time: 2017-04-11 07:51:54
 """
 # 菲波那契 子序列的程序
 
