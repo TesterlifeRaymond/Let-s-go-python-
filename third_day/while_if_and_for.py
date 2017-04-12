@@ -6,7 +6,7 @@
 # @FileName:  while_if_and_for.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-12 07:40:39
+# @Last Modified time: 2017-04-12 07:40:50
 """
 # switch = 1
 #   如果 swich = 真  bool True
