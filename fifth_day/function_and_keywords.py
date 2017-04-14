@@ -6,7 +6,7 @@
 # @FileName:  function_and_keywords.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-14 07:24:52
+# @Last Modified time: 2017-04-14 09:39:52
 """
 
 
@@ -123,6 +123,7 @@ def write_multiple_items(separator, *args, file=file):
 if __name__ == '__main__':
     write_multiple_items('Ray', 'Age', 'sex', 'compty', '狗子')
     file.close()
+    print("file is closed.")
     with open('file/log.log', 'r') as file:
         data = file.read()
     print(data)
