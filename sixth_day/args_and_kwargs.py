@@ -6,7 +6,7 @@
 # @FileName:  args_and_kwargs.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-15 09:04:31
+# @Last Modified time: 2017-04-15 09:07:23
 """
 from collections import deque
 import random
@@ -59,9 +59,7 @@ def calculator(*args, sep='+'):
         return tmp
 
     tmp = args[0]
-    for index in range(len(args)):
-        if args[index] == args[0]:
-            continue
+    for index in range(1, len(args)):
         if sep == '*':
             tmp *= args[index]
         if sep == '-':
@@ -150,4 +148,4 @@ if __name__ == '__main__':
     # print(_list)
     # del _list
     # print(_list)
-    print(calculator(100, 20, 25, sep='-'))
+    print(calculator(100, 20, 25, sep='*'))
