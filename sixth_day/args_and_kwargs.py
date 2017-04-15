@@ -6,7 +6,7 @@
 # @FileName:  args_and_kwargs.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-15 09:07:23
+# @Last Modified time: 2017-04-15 10:35:18
 """
 from collections import deque
 import random
@@ -49,17 +49,16 @@ def squares():
 
 def calculator(*args, sep='+'):
     """ 20170415 计算器作业题 """
-    if len(args) == 0:
-        return 0
-    if len(args) == 1:
-        return args[0]
+    if len(args) < 2:
+        return 'args lenth is too short'
 
-    if sep == '+':
-        tmp = sum([item for item in args])
-        return tmp
+    if sep not in ['+', '-', '*', '/']:
+        raise TypeError("type error for sep !")
 
     tmp = args[0]
     for index in range(1, len(args)):
+        if sep == '+':
+            tmp = sum(args)
         if sep == '*':
             tmp *= args[index]
         if sep == '-':
