@@ -6,7 +6,7 @@
 # @FileName:  args_and_kwargs.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-15 11:02:15
+# @Last Modified time: 2017-04-15 11:10:14
 """
 import _io
 from collections import deque
@@ -73,7 +73,9 @@ def calculator(*args, sep='+'):
 
 
 def every_type_to_function(param, *args):
-    """ pass """
+    """For different types of parameters to
+    determine and return the corresponding results
+    """
     result = None
     if isinstance(param, _io.TextIOWrapper):
         result = param.read()
@@ -169,6 +171,6 @@ if __name__ == '__main__':
     # del _list
     # print(_list)
 
-    # file = open('../fifth_day/file/log.log', 'r')
-    print(every_type_to_function("10", '123'))
+    file = open('../fifth_day/file/log.log', 'r')
+    print(every_type_to_function(file))
     print(calculator(100, 20, 25, sep='*'))
