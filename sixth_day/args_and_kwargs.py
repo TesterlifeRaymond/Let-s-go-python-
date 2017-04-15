@@ -6,8 +6,9 @@
 # @FileName:  args_and_kwargs.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-15 10:35:18
+# @Last Modified time: 2017-04-15 11:02:15
 """
+import _io
 from collections import deque
 import random
 from math import pi
@@ -69,6 +70,26 @@ def calculator(*args, sep='+'):
     if tmp >= 100000:
         raise IOError('number > 100000, calculator error !!!')
     return tmp
+
+
+def every_type_to_function(param, *args):
+    """ pass """
+    result = None
+    if isinstance(param, _io.TextIOWrapper):
+        result = param.read()
+        param.close()
+
+    if isinstance(param, int) and args:
+        if isinstance(args[0], int):
+            result = param + args[0]
+        else:
+            result = param - 1
+    if isinstance(param, str) and args:
+        if isinstance(args[0], list):
+            result = param + ''.join(args[0])
+        else:
+            result = list(param)
+    return result
 
 if __name__ == '__main__':
     # function(
@@ -147,4 +168,7 @@ if __name__ == '__main__':
     # print(_list)
     # del _list
     # print(_list)
+
+    # file = open('../fifth_day/file/log.log', 'r')
+    print(every_type_to_function("10", '123'))
     print(calculator(100, 20, 25, sep='*'))
