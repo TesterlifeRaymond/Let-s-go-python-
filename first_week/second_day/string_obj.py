@@ -6,7 +6,7 @@
 # @FileName:  string_obj.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-11 07:37:15
+# @Last Modified time: 2017-04-16 06:58:55
 """
 
 # print(r'C:\some\name')   # C:\some\name    r''
@@ -73,7 +73,7 @@ text = "my name is %s , age is %s" % ("Liu", "22")
 print(text)
 
 squares = [1, 4, 9, 16, 25]
-print(squares)
+print(squares.copy())
 print(squares[:])   # squares的浅拷贝信息
 
 print(squares + [36, 49, 64, 81, 100])

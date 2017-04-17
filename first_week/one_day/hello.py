@@ -3,10 +3,10 @@
 # -*- coding: utf-8 -*-
 # @Author: liujinjia
 # @Date:   2017-04-06 06:34:42
-# @FileName:  first.py
+# @FileName:  hello.py
 # @Project: devops
-# @Last Modified by:   jinjialiu
-# @Last Modified time: 2017-04-10 07:48:27
+# @Last Modified by:   Ray
+# @Last Modified time: 2017-04-16 06:20:29
 """
 
 # 首先，大家都是初学者， 所以我们尽可能的把内容的复杂度降低。
@@ -32,7 +32,7 @@ data = "有没有发现上面的代码 再添加了# 和 之后， 变成了注�
 sql = "select * from user where username = '狗子'"
 sql = 'select * from user where username = \'狗子\''
 '' ""
-print(data)
+print(sql)
 
 # 有没有发现上面的代码 再添加了# 和 """ 之后， 变成了注释状态？
 

@@ -6,7 +6,7 @@
 # @FileName:  args_and_kwargs.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-15 11:10:14
+# @Last Modified time: 2017-04-16 07:31:08
 """
 import _io
 from collections import deque
@@ -46,6 +46,14 @@ def squares():
     for x in range(10):
         squares.append(x)
     return squares
+
+"""作业题：
+    1： 写一个计算器， 可以做 + - * / , 这个计算器之运算0以上的数字， 正数， 如果计算数值大于10W抛出IO异常
+    2： 写一个函数，接受任意参数(可以是数字, 字符串，文件流)， 判断不同的参数类型，对参数进行不同的处理
+        2.1 如果是file， 需要读取file文件中的信息并打印在控制台
+        2.2 如果是int 判断下一个元素的类型，如果两个元素的类型都是int 则返回两个元素之和， 如果两个元素类型不相同，则返回int -1 的结果
+        2.3 如果str 判断下一个类型是不是list，如果是list 将list转换为str ，两者相加之后返回，如果不是list则把str转换为list后返回
+"""
 
 
 def calculator(*args, sep='+'):
@@ -171,6 +179,19 @@ if __name__ == '__main__':
     # del _list
     # print(_list)
 
-    file = open('../fifth_day/file/log.log', 'r')
-    print(every_type_to_function(file))
-    print(calculator(100, 20, 25, sep='*'))
+    # file = open('../fifth_day/file/log.log', 'r')
+    print(every_type_to_function("100", 123))
+    # print(calculator(100, 2000, 25, sep='*'))
+    # enu = {
+    #     1: '1',
+    #     2: '2',
+    #     3: '3'
+    # }
+
+    # def enum(num):
+    #     """ return enm value for num """
+    #     return enu.get(num, 'key error')
+
+    # print(enum(1))
+    # print(enum(2))
+    # print(enum(5))

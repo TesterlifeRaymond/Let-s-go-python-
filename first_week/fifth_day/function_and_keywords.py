@@ -6,7 +6,7 @@
 # @FileName:  function_and_keywords.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-14 09:39:52
+# @Last Modified time: 2017-04-17 06:58:25
 """
 
 
@@ -112,12 +112,12 @@ def cheeseshop(kind, *args, **kwargs):
 #                 error += 1
 #         print("{0}A{1}B".format(right, error))
 
-file = open('file/log.log', 'w')
+# file = open('file/log.log', 'w')
 
 
-def write_multiple_items(separator, *args, file=file):
-    """ write log """
-    file.write(separator.join(args))
+# def write_multiple_items(separator, *args, file=file):
+#     """ write log """
+#     file.write(separator.join(args))
 
 
 if __name__ == '__main__':

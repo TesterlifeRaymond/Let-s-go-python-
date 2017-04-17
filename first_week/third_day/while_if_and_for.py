@@ -6,9 +6,9 @@
 # @FileName:  while_if_and_for.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-12 07:40:50
+# @Last Modified time: 2017-04-16 07:10:27
 """
-# switch = 1
+switch = 1
 #   如果 swich = 真  bool True
 #   break 跳出循环
 
@@ -19,30 +19,29 @@
 
 # a, b = 0, 1
 # while b < 10:
-#     print(b, end=(','))
+#     print(b, end=(''))
 #     a, b = b, a + b
 
 # print(3**2)
 # print(4 ** 2)
 # print(abs(-3))
-# abs(-3)
 #    abs函数是python的内置函数， 作用是取参数的绝对值，不取整
 
 # print('"', '\'')
 # print("\"", "'")
-
-# user = int(input("please enter a interger : "))
-# # 用户通过input这个函数 输入一个字符串类型的参数
-# # int(string) 将他强转为int类型        string ==> interger
-# if user < 0:
-#     user = 0
-#     print('Negative changed to zero')
-# elif user == 0:
-#     print('Zero')
-# elif user == 1:
-#     print("One")
-# else:
-#     print("More")
+while 1:
+    user = int(input("please enter a interger : "))     # input 接受的参数默认为string类型
+    # 用户通过input这个函数 输入一个字符串类型的参数
+    # int(string) 将他强转为int类型        string ==> interger
+    if user < 0:
+        user = 0
+        print('Negative changed to zero')
+    elif user == 0:
+        print('Zero')
+    elif user == 1:
+        print("One")
+    else:
+        print("More")
 
 # ENU = {0: 'Zero', 1: 'One', 2: 'More', 3: 'Negative changed to zero'}
 # print(ENU.get(user, 'Negative changed to zero'))
@@ -138,12 +137,12 @@ _list = ['Mary', 'had', 'a', 'little', 'lamb']
 # #   这个列表的长度 > 20
 # #   我想取出这个列表中索引位置为5， 10 ，15的元素的值
 
-table = [1, 4, 6, 8, 90, 0, 74, 4, 66, 89, 0, 64, 34, 3, 5, 78, 9, 896, 43, 3]
+# table = [1, 4, 6, 8, 90, 0, 74, 4, 66, 89, 0, 64, 34, 3, 5, 78, 9, 896, 43, 3]
 
-for item in range(5, 20, 5):
-    print(table[item])
+# for item in range(5, 20, 5):
+#     print(table[item])
 # print([item for item in range(5, 30, 5)][0:3])
-print([item for index, item in enumerate(table) if index in (5, 10, 15)])
+# print([item for index, item in enumerate(table) if index in (5, 10, 15)])
 
 # for index, item in enumerate(table):
 #     print(index, item)

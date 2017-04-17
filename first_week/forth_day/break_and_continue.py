@@ -6,7 +6,7 @@
 # @FileName:  break_and_continue.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-13 10:04:26
+# @Last Modified time: 2017-04-16 07:25:32
 """
 import random
 
@@ -31,7 +31,7 @@ while 0:
 else:
     print(1)
 
-  这个数本身只能被自己和1整除
+  # 这个数本身只能被自己和1整除
 
 for item in range(2, 10):
     #  item start 2 , stop 9
