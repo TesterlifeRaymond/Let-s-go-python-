@@ -6,7 +6,7 @@
 # @FileName:  args_and_kwargs.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-16 07:31:08
+# @Last Modified time: 2017-04-17 11:33:43
 """
 import _io
 from collections import deque
@@ -180,8 +180,8 @@ if __name__ == '__main__':
     # print(_list)
 
     # file = open('../fifth_day/file/log.log', 'r')
-    print(every_type_to_function("100", 123))
-    # print(calculator(100, 2000, 25, sep='*'))
+    # print(every_type_to_function("100", 123))
+    print(calculator(100, 20, 25, sep='/'))
     # enu = {
     #     1: '1',
     #     2: '2',
