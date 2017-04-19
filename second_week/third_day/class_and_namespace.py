@@ -6,7 +6,7 @@
 # @FileName:  class_and_namespace.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-19 09:25:10
+# @Last Modified time: 2017-04-20 06:09:25
 """
 
 
