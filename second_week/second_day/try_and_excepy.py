@@ -6,7 +6,7 @@
 # @FileName:  try_and_excepy.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-18 07:09:27
+# @Last Modified time: 2017-04-18 20:43:58
 """
 import sys
 import json
