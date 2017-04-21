@@ -6,7 +6,7 @@
 # @FileName:  class_and_namespace.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-20 06:09:25
+# @Last Modified time: 2017-04-21 06:27:05
 """
 
 
@@ -17,6 +17,8 @@ class MyClass:
 
 class Student:
     """ pass """
+    metho = 'post'
+
     def __init__(self, name, score):
         """ pass """
         self.__name = name
