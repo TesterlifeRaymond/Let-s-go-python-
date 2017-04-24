@@ -6,7 +6,7 @@
 # @FileName:  basic_practice.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-24 07:16:03
+# @Last Modified time: 2017-04-24 10:03:01
 """
 import time
 import random
@@ -37,7 +37,9 @@ student_score = [random.randint(0, 100) for _ in range(0, 41)]
 print(student_score)
 #   其中有40个元素，每个元素是0到100的一个随机整数
 
-print(sum(student_score) / len(student_score))
+avg = sum(student_score) / len(student_score)
+print("avg number is {}".format(avg))
+print([item for item in student_score if item < avg])
 #   列表中的数据代表着某个班级40人的分数，请计算成绩低于平均分的学生人数
 
 sorted_student_score = sorted(student_score)
