@@ -6,7 +6,7 @@
 # @FileName:  args_and_kwargs.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-17 11:33:43
+# @Last Modified time: 2017-04-25 11:34:02
 """
 import _io
 from collections import deque
@@ -114,9 +114,9 @@ if __name__ == '__main__':
     # print(make_incrementor(10)(10))
     # func = make_incrementor(42)
     # print(func(31))
-    # pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
-    # pairs.sort(key=lambda pair: pair[1])
-    # print(pairs)
+    pairs = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
+    pairs.sort(key=lambda pair: pair[1])
+    print(pairs)
     # print(dir(my_function))
     # print(my_function.__qualname__)
     # print(my_function.__name__)

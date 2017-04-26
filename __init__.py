@@ -6,5 +6,8 @@
 # @FileName:  __init__.py
 # @Project: devops
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-20 06:53:53
+# @Last Modified time: 2017-04-26 10:01:39
 """
+
+import sys
+print(sys.argv)
