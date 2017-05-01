@@ -6,7 +6,7 @@
 # @FileName:  douban_books_spider.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-05-02 07:11:23
+# @Last Modified time: 2017-05-02 07:13:26
 """
 import os
 import json
@@ -49,7 +49,7 @@ class DouBanApi:
 
     def down_book_info(self):
         """ pass """
-        with open(self.book_name, 'w') as file:
+        with open('file/' + self.book_name, 'w') as file:
             file.write(json.dumps(self.response))
 
 if __name__ == '__main__':
