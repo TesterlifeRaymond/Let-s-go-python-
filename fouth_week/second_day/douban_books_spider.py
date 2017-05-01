@@ -6,9 +6,10 @@
 # @FileName:  douban_books_spider.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-05-02 06:41:25
+# @Last Modified time: 2017-05-02 07:11:23
 """
 import os
+import json
 from requests import Session
 
 
@@ -27,7 +28,6 @@ class DouBanApi:
         """ get douban books info """
         url = self.base_url.format(self.book_name)
         self.response = self.session.get(url).json()
-        print(self.response)
 
     def download_book_img(self):
         """ pass """
@@ -47,6 +47,11 @@ class DouBanApi:
         """ pass """
         return os.listdir('file/')
 
+    def down_book_info(self):
+        """ pass """
+        with open(self.book_name, 'w') as file:
+            file.write(json.dumps(self.response))
+
 if __name__ == '__main__':
     # fammer = DouBanApi('农夫与蛇')
     # fammer.get_book_info()
@@ -59,3 +64,4 @@ if __name__ == '__main__':
     for item in xiaohongmao.get_all_sohu_bookslist_info():
         search = DouBanApi(item)
         search.get_book_info()
+        search.down_book_info()
