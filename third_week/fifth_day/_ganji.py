@@ -6,7 +6,7 @@
 # @FileName:  _ganji.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-28 07:16:07
+# @Last Modified time: 2017-04-28 15:41:27
 """
 import requests
 from bs4 import BeautifulSoup
@@ -17,6 +17,7 @@ class GanJi:
     def __init__(self):
         """ pass """
         self.session = requests.Session()
+        print(self)
 
     def get_page_html(self, url):
         """ pass """
@@ -35,3 +36,4 @@ class GanJi:
 if __name__ == '__main__':
     ganji = GanJi()
     print(ganji.get_page_all_url('http://bj.ganji.com/', tag='s'))
+    print(GanJi().get_page_all_url('http://bj.ganji.com/', tag='s'))
