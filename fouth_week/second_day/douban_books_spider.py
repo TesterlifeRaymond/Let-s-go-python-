@@ -6,7 +6,7 @@
 # @FileName:  douban_books_spider.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-05-02 07:13:26
+# @Last Modified time: 2017-05-02 17:43:43
 """
 import os
 import json
@@ -28,6 +28,7 @@ class DouBanApi:
         """ get douban books info """
         url = self.base_url.format(self.book_name)
         self.response = self.session.get(url).json()
+        self.img = self.response.get('books')
 
     def download_book_img(self):
         """ pass """
