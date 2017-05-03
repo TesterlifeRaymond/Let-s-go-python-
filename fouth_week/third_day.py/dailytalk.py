@@ -6,7 +6,7 @@
 # @FileName:  dailytalk.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-05-03 10:11:19
+# @Last Modified time: 2017-05-03 19:50:24
 """
 import gevent
 from requests import Session
@@ -31,8 +31,11 @@ class PythonTab:
         """ pass """
         element = BeautifulSoup(self.session.get(url).text, 'lxml')
         response = self.session.get(url).text
-        title = BeautifulSoup(response, 'lxml').find('h1').get_text()
-        print(title)
+        try:
+            title = BeautifulSoup(response, 'lxml').find('h1').get_text()
+            print(title)
+        except AttributeError:
+            pass
         for item in element.find_all('div', {'class': 'content'}):
             for item in item.find_all('p'):
                 print(item.get_text())
