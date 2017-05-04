@@ -6,7 +6,7 @@
 # @FileName:  pythontab.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-05-04 07:45:06
+# @Last Modified time: 2017-05-04 08:00:24
 """
 import gevent
 from requests import Session
@@ -14,11 +14,15 @@ from bs4 import BeautifulSoup
 from lxml import etree
 
 
+PARAM = 'Python框架'
+
+
 class PythonTab:
     """ Python tab class """
     session = Session()
     homepage = 'http://www.pythontab.com/'
     tags = {}
+    base_url = ''
 
     def get_page_nav_tag(self):
         """ home page nav """
@@ -33,15 +37,16 @@ class PythonTab:
         """ Basic course """
         url = self.get_page_nav_tag().tags.get(title)
         if url:
+            self.base_url = url
             return url
         return
 
     def get_pages_number(self):
         """ page numbers """
-        param = 'Python基础教程'
+        param = PARAM
         source = etree.HTML(self.session.get(self.python_basic_course(param)).text)
         lase_page_number = source.xpath('//div[@class="text-c"]/a/text()')[-2]
-        return lase_page_number
+        return int(lase_page_number)
 
     def request_nav_bar_tag(self, url):
         """ pass """
@@ -67,8 +72,13 @@ if __name__ == '__main__':
     pythontab = PythonTab()
     page_url = []
     pages = []
-    base_url = 'http://www.pythontab.com/html/pythonjichu/{}.html'
-    urls = [base_url.format('index') if num == 1 else base_url.format(num) for num in range(1, 26)]
+    base_url = pythontab.python_basic_course(PARAM)
+    #  获取对应title的base_url
+    urls = [
+        base_url.format(
+            'index') if num == 1 else base_url.format(num) for num in range(
+                1, pythontab.get_pages_number())
+    ]
     # 基础教程全部页面的urls
     events = [gevent.spawn(pythontab.get_all_pages_param, url) for url in urls]
     # 放入gevent.spawn
