@@ -6,7 +6,7 @@
 # @FileName:  pythontab.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-05-04 08:00:24
+# @Last Modified time: 2017-05-04 08:03:28
 """
 import gevent
 from requests import Session
@@ -77,7 +77,7 @@ if __name__ == '__main__':
     urls = [
         base_url.format(
             'index') if num == 1 else base_url.format(num) for num in range(
-                1, pythontab.get_pages_number())
+                1, pythontab.get_pages_number() + 1)
     ]
     # 基础教程全部页面的urls
     events = [gevent.spawn(pythontab.get_all_pages_param, url) for url in urls]
