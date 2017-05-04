@@ -6,7 +6,7 @@
 # @FileName:  pythontab.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-05-04 08:03:28
+# @Last Modified time: 2017-05-05 06:32:58
 """
 import gevent
 from requests import Session
@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 from lxml import etree
 
 
-PARAM = 'Python框架'
+PARAM = 'Python基础教程'
 
 
 class PythonTab:
@@ -37,7 +37,7 @@ class PythonTab:
         """ Basic course """
         url = self.get_page_nav_tag().tags.get(title)
         if url:
-            self.base_url = url
+            self.base_url = url + '{}.html'
             return url
         return
 
@@ -50,16 +50,12 @@ class PythonTab:
 
     def request_nav_bar_tag(self, url):
         """ pass """
-        element = BeautifulSoup(self.session.get(url).text, 'lxml')
-        response = self.session.get(url).text
-        try:
-            title = BeautifulSoup(response, 'lxml').find('h1').get_text()
-            print(title)
-        except AttributeError:
-            pass
-        for item in element.find_all('div', {'class': 'content'}):
-            for item in item.find_all('p'):
-                print(item.get_text())
+        source = etree.HTML(self.session.get(url).text)
+        element = source.xpath('//div[@class="content"]/p/text()')
+        title = source.xpath('//h1/text()')
+        print(title)
+        for item in element:
+            print(item)
 
     def get_all_pages_param(self, url):
         """ pass """
@@ -69,10 +65,14 @@ class PythonTab:
         return urls
 
 if __name__ == '__main__':
+    import time
+    start = time.time()
     pythontab = PythonTab()
     page_url = []
     pages = []
-    base_url = pythontab.python_basic_course(PARAM)
+    pythontab.python_basic_course(PARAM)
+    base_url = pythontab.base_url
+    print(base_url)
     #  获取对应title的base_url
     urls = [
         base_url.format(
@@ -81,11 +81,13 @@ if __name__ == '__main__':
     ]
     # 基础教程全部页面的urls
     events = [gevent.spawn(pythontab.get_all_pages_param, url) for url in urls]
-    # 放入gevent.spawn
-    page_url += gevent.joinall(events)
-    # 协程执行  获取到全部页面中的文章url
+    # # 放入gevent.spawn
+    page_url = gevent.joinall(events)
+    # # 协程执行  获取到全部页面中的文章url
     for url in page_url:
         pages += url.value
-    # pages 是所有文章的urls的list集合
+    print(len(pages))
+    # # pages 是所有文章的urls的list集合
     events = [gevent.spawn(pythontab.request_nav_bar_tag, url) for url in pages]
     gevent.joinall(events)
+    print(time.time() - start)
