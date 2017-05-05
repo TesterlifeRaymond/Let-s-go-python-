@@ -6,11 +6,12 @@
 # @FileName:  douban_books_spider.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-05-02 17:43:43
+# @Last Modified time: 2017-05-06 06:30:52
 """
 import os
 import json
 from requests import Session
+from lxml import etree
 
 
 class DouBanApi:
@@ -30,13 +31,6 @@ class DouBanApi:
         self.response = self.session.get(url).json()
         self.img = self.response.get('books')
 
-    def download_book_img(self):
-        """ pass """
-        img_name = self.img.split('/')[-1]
-        content = self.session.get(self.img)
-        with open('img/{}'.format(img_name), 'wb') as img:
-            img.write(content.content)
-
     def get_book_info_for_bookid(self, id):
         """ pass """
         print(
@@ -53,14 +47,26 @@ class DouBanApi:
         with open('file/' + self.book_name, 'w') as file:
             file.write(json.dumps(self.response))
 
+    def get_books_name(self):
+        """ pass """
+        url = 'http://www.bbtpress.com/homepagebook/tsjt.asp'
+        response = self.session.get(url)
+        response.encoding = 'gb2312'
+        source = etree.HTML(response.text).xpath('//a[@class="blacklink"]/text()')
+        for item in source:
+            with open('file/' + item, 'a') as file:
+                file.write('')
+
+
 if __name__ == '__main__':
-    # fammer = DouBanApi('农夫与蛇')
-    # fammer.get_book_info()
+    fammer = DouBanApi('农夫与蛇')
+    fammer.get_book_info()
 
     xiaohongmao = DouBanApi('小红帽')
     # xiaohongmao.get_book_info()
     xiaohongmao.get_all_sohu_bookslist_info()
     # xiaohongmao.download_book_img()
+    # xiaohongmao.get_books_name()
 
     for item in xiaohongmao.get_all_sohu_bookslist_info():
         search = DouBanApi(item)

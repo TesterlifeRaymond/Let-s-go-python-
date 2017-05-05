@@ -6,7 +6,7 @@
 # @FileName:  jiandan.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-05-05 07:57:09
+# @Last Modified time: 2017-05-05 16:16:13
 """
 import gevent
 from requests import Session
@@ -15,7 +15,6 @@ from lxml import etree
 
 class JianDan:
     """ jiandan duanzi spider """
-
     session = Session()
     home_page = session.get('http://jandan.net/duan').text
     page_nums = eval(
@@ -44,17 +43,15 @@ class JianDan:
                 '//li[@id="{}"]/div[1]/div[@class="row"]/div[@class="text"]'.format(tid))[0]
             text = text.xpath('string(.)').split(tid.split('-')[-1])[-1]
 
-            vote = source.xpath('//div[@id="{}"]/span/text()'.format(oid))
+            # vote = source.xpath('//div[@id="{}"]/span/text()'.format(oid))
             user = source.xpath(
                 '//li[@id="{}"]/div[1]/div[@class="row"]/div[@class="author"]/small/a'.format(tid)
             )[0]
             name = user.items()[2][1].split('>')[-2].split('<')[0]
-            oo, xx = vote
 
             print("**************{}**************".format(name))
-            print("******************OO:{}**XX{}*".format(oo, xx))
             print(text)
             print("******************************")
 
 if __name__ == '__main__':
-    JianDan().parse_page('http://jandan.net/duan/page-2115#comments')
+    JianDan().parse_page('http://jandan.net/duan/page-2114#comments')
