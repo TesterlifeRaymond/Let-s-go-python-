@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Let-s-go-python-.iml" filepath="$PROJECT_DIR$/.idea/Let-s-go-python-.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Themis/.idea/Themis.iml" filepath="$PROJECT_DIR$/../Themis/.idea/Themis.iml" />
+      <module fileurl="file://$USER_HOME$/Creditease/bdfly_test/.idea/bdfly_test.iml" filepath="$USER_HOME$/Creditease/bdfly_test/.idea/bdfly_test.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,4 +1,4 @@
-
+# coding=utf-8
 """
 # -*- coding: utf-8 -*-
 # @Author: liujinjia
@@ -18,14 +18,14 @@ class TestUnitTest(unittest.TestCase):
 
     def setUp(self):
         """ pass """
-        # print('这是setUp被执行')
+        print('这是setUp被执行')
         self.number = 1
         self.session = requests.Session()
         self.api_url = 'https://api.douban.com/v2/book/1220562'
 
     def tearDown(self):
         """ pass """
-        # print('这是tearDown被执行')
+        print('这是tearDown被执行')
         del self.number
 
     def test_number(self):
@@ -48,7 +48,7 @@ class TestUnitTest(unittest.TestCase):
     def test_douban_api(self):
         """ pass """
         print('start test test_douban_api')
-        result = self.session.get(self.api_url, verify=False).json()
+        result = self.session.get(self.api_url).json()
         self.assertEqual(result.get('id'), '1220562')
         self.assertEquals(result.get('title'), '满月之夜白鲸现')
         self.assertEqual(type(result.get('tags')), list)
