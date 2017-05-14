@@ -6,7 +6,7 @@
 # @FileName:  construction.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-05-15 07:00:19
+# @Last Modified time: 2017-05-15 07:13:39
 """
 import random
 import string
@@ -47,11 +47,11 @@ def name(first=None):
     return ''.join(random.sample(first_name, 1) + random.sample(last_name, rand))
 
 
-def constuction(mobile, email):
+def constuction(user_mobile, user_email):
     """ constuction request data"""
     _dict = dict()
-    _dict['mobile'] = mobile
-    _dict['email'] = email
+    _dict['mobile'] = user_mobile
+    _dict['email'] = user_email
     _dict['token'] = '123456'
     _dict['dealno'] = 'XFGAS12345'
     return _dict
