@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": false,
+    "definitions": {},
+    "id": "Raymond Api Test Demo",
+    "properties": {
+        "areaVid": {
+            "id": "/properties/areaVid",
+            "type": "string"
+        },
+        "carrier": {
+            "id": "/properties/carrier",
+            "type": "string"
+        },
+        "catName": {
+            "id": "/properties/catName",
+            "type": "string"
+        },
+        "ispVid": {
+            "id": "/properties/ispVid",
+            "type": "string"
+        },
+        "mts": {
+            "id": "/properties/mts",
+            "type": "string"
+        },
+        "province": {
+            "id": "/properties/province",
+            "type": "string"
+        },
+        "telString": {
+            "id": "/properties/telString",
+            "type": "string"
+        }
+    },
+    "required": [
+        "mts",
+        "ispVid",
+        "telString",
+        "catName",
+        "carrier",
+        "areaVid"
+    ],
+    "type": "object"
+}

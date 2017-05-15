@@ -1,0 +1,81 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "additionalProperties": false,
+    "definitions": {},
+    "id": "Raymond Api Test Demo",
+    "properties": {
+        "result": {
+            "additionalProperties": false,
+            "id": "/properties/result",
+            "properties": {
+                "area": {
+                    "id": "/properties/result/properties/area",
+                    "type": "string"
+                },
+                "att": {
+                    "id": "/properties/result/properties/att",
+                    "type": "string"
+                },
+                "ctype": {
+                    "id": "/properties/result/properties/ctype",
+                    "type": "string"
+                },
+                "operators": {
+                    "id": "/properties/result/properties/operators",
+                    "type": "string"
+                },
+                "par": {
+                    "id": "/properties/result/properties/par",
+                    "type": "string"
+                },
+                "phone": {
+                    "id": "/properties/result/properties/phone",
+                    "type": "string"
+                },
+                "postno": {
+                    "id": "/properties/result/properties/postno",
+                    "type": "string"
+                },
+                "prefix": {
+                    "id": "/properties/result/properties/prefix",
+                    "type": "string"
+                },
+                "status": {
+                    "id": "/properties/result/properties/status",
+                    "type": "string"
+                },
+                "style_citynm": {
+                    "id": "/properties/result/properties/style_citynm",
+                    "type": "string"
+                },
+                "style_simcall": {
+                    "id": "/properties/result/properties/style_simcall",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "status",
+                "par",
+                "style_citynm",
+                "area",
+                "operators",
+                "prefix",
+                "style_simcall",
+                "phone",
+                "att",
+                "ctype",
+                "postno"
+            ],
+            "type": "object"
+        },
+        "success": {
+            "id": "/properties/success",
+            "type": "string"
+        }
+    },
+    "required": [
+        "result",
+        "success"
+    ],
+    "type": "object"
+}
