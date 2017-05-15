@@ -43,6 +43,8 @@ class Wrapper:
     """ pass """
     def __init__(self, encoding=None):
         """ pass """
+        if encoding is None:
+            self.param = 'utf-8'
         self.param = encoding
 
     def __call__(self, function):
@@ -50,6 +52,8 @@ class Wrapper:
         def parse(*args, **kwargs):
             """ pass """
             func = function(*args, **kwargs)
+            if isinstance(func, str):
+                return func
             xpath = kwargs.get('xpath')
             func.encoding = self.param
             source = etree.HTML(func.text)
@@ -58,15 +62,17 @@ class Wrapper:
         return update_wrapper(parse, function)
 
 
-@Wrapper('Ray')
-def wrap(**kwargs):
+@Wrapper(encoding=None)
+def wrap():
     """ wrap function """
-    print('这是一个装饰器测试函数')
+    return '这是一个装饰器测试函数'
 
 
 @Wrapper(encoding='utf-8')
 def request(url, xpath=None):
-    """ request funtions """
+    """ request funtions 
+    :type xpath: object
+    """
     return requests.get(url)
 
 if __name__ == '__main__':
@@ -78,9 +84,9 @@ if __name__ == '__main__':
         xpath='//div[@class="panel-body markdown markdown-toc"]//text()')
     )
     print(','.join(text.split()))
-    # __wrapper = wrap
-    # __wrapper()
-    # print(wrap.__name__)
-    # print(__wrapper.__name__)
-    # print(__wrapper is wrap)
-    # Wrapper(wrap())
+    __wrapper = wrap
+    __wrapper()
+    print(wrap.__name__)
+    print(__wrapper.__name__)
+    print(__wrapper is wrap)
+    Wrapper(wrap())
