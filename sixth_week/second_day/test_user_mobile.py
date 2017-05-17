@@ -6,7 +6,7 @@
 # @FileName:  test_user_mobile.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-05-16 07:07:36
+# @Last Modified time: 2017-05-16 07:24:37
 """
 import json
 import unittest
@@ -29,7 +29,8 @@ class TestUserMobile(unittest.TestCase):
         """ request api and get response """
         data = request(self.url, None)[1].text.split('=')[1].replace('\r\n', '')
         result = dict(string2dict(data))
-        result.pop('province')
+        with open('test.json', 'w') as file:
+            file.write(json.dumps(result))
         self.assertEqual(result.get('telString'), self.mobile)
         self.assertEqual(valid_json(result, "user_mobile_jsonschema.json"), True)
 

@@ -6,7 +6,7 @@
 # @FileName:  construction.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-05-15 07:13:39
+# @Last Modified time: 2017-05-18 06:12:09
 """
 import random
 import string
@@ -66,4 +66,4 @@ def request(url, data):
 if __name__ == '__main__':
     mobile, email = mobile(), email()
     print(name(['宇文', '南宫', '尉迟', '独孤']))
-    # print(request('http://testerlife.com', constuction(mobile, email))[0])
+    print(request('http://testerlife.com', constuction(mobile, email))[1])
