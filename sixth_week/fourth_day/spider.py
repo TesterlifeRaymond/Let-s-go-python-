@@ -6,8 +6,9 @@
 # @FileName:  spider.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-05-18 07:20:37
+# @Last Modified time: 2017-05-19 06:39:40
 """
+import os
 from requests import Session
 from lxml import etree
 import gevent
@@ -25,17 +26,22 @@ class BaseClass:
         """ request function """
         response = self.session.get(url)
         response.encoding = 'utf-8'
-        return response.text
+        return response.content
 
-    def parser(self, html, xpath):
+    @staticmethod
+    def parser(html, xpath):
         """ parser pages source """
         source = etree.HTML(html)
         return source.xpath(xpath)
 
     def download_img(self, content, filename):
         """ download img function """
-        with open(self.img_path + filename + '.jpg', 'wb') as file:
-            file.write(content.encode())
+        filepath = self.img_path + "{}/".format(filename.split('/')[0])
+        #   需要查询一下这个路径的文件夹是否存在， 如果不存在， 则make dir一个新的文件夹
+        if not os.path.exists(filepath):
+            os.makedirs(filepath)
+        with open(self.img_path + "{}".format(filename), 'wb') as file:
+            file.write(content)
 
 
 class Spider(BaseClass):
@@ -49,7 +55,7 @@ class Spider(BaseClass):
     def get_pages_number(self):
         """ pass """
         last_page_num = self.parser(
-            self.request(self.home_page),
+            self.request(self.home_page).decode(),
             '//div[@class="page"]/a/@href')[-1]
         return last_page_num.split('/')[-1]
 
@@ -60,7 +66,8 @@ class Spider(BaseClass):
         for num in range(1, pages_num + 1):
             #   遍历所有页面的html
             new_url = url.format(num)
-            result.append(item for item in self.parser(self.request(new_url), '//li/a/@href'))
+            result.append(
+                item for item in self.parser(self.request(new_url).decode(), '//li/a/@href'))
         return result
 
     def get_img_all_pages_second_depth(self, html):
@@ -79,21 +86,35 @@ class Spider(BaseClass):
 
     def get_img_pages_and_download(self, url):
         """ pass """
-        url = self.parser(self.request(url), '//div[@class="content"]/a/img/@src')[-1]
+        url = self.parser(self.request(url).decode(), '//div[@class="content"]/a/img/@src')[-1]
         content = self.request(url)
-        self.download_img(content, url.split('/')[-2])
+        filename = url.split('/')[-2] + '/' + url.split('/')[-1]
+        self.download_img(content, filename)
+
+
+def main():
+    """ main function """
+    spider = Spider()
+    spawn = []
+    for item in spider.get_all_img_url(int(spider.get_pages_number())):
+        spawn.append(item.__next__())
+
+    events = [
+        gevent.spawn(spider.get_img_all_pages_second_depth, spider.request(url)) for url in spawn
+    ]
+    all_urls = []
+    for item in gevent.joinall(events):
+        for _item in spider.get_img_all_urls_second_depth(item.value):
+            all_urls.append(_item)
+
+    events = [gevent.spawn(spider.get_img_pages_and_download, url) for url in all_urls]
+    gevent.joinall(events)
+
+"""
+1： 不要把所有的xpath 写在代码中， 包括以后的url地址、encoding、file path 等
+2： 功能没问题的基础上， 如何调整代码的可读性
+"""
+
 
 if __name__ == '__main__':
-    spider = Spider()
-    # spawn = []
-    # for item in spider.get_all_img_url(int(spider.get_pages_number())):
-    #     spawn.append(item.__next__())
-
-    # events = [
-    #     gevent.spawn(spider.get_img_all_pages_second_depth, spider.request(url)) for url in spawn
-    # ]
-    # all_urls = []
-    # for item in gevent.joinall(events):
-    #     for item in spider.get_img_all_urls_second_depth(item.value):
-    #         all_urls.append(item)
-    spider.get_img_pages_and_download('http://www.mmjpg.com/mm/12/9')
+    main()
