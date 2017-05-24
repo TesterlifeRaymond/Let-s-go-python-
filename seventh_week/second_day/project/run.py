@@ -7,6 +7,12 @@
 """
 import case
 
+gate = case.ArbitraryGate()
+gate.name = 'Gate'
+gate.age = '19'
+gate.sex = 'male'
+gate.father = 'Doraemon'
+
 
 doraemon = case.Doraemon()
 doraemon.name = "doraemon"
@@ -15,4 +21,5 @@ doraemon.sex = "male"
 
 
 if __name__ == '__main__':
+    print(gate)
     print(doraemon)

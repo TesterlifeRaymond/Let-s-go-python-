@@ -37,7 +37,7 @@ class Base:
 
 class LaoShe(Base):
     """ 继承Base类 """
-    def __init__(self, encode):
+    def __init__(self):
         """ init class """
         Base.__init__(self)
         self.start_url = 'http://www.readers365.com/laoshewenji/lzdz/index.html'
@@ -58,6 +58,6 @@ class LaoShe(Base):
 
 
 if __name__ == '__main__':
-    laoshe = LaoShe('utf-8')
+    laoshe = LaoShe()
     events = [gevent.spawn(laoshe.get_pages_text, url) for url in range(1, 10000)]
     gevent.joinall(events)

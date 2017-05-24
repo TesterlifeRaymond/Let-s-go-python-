@@ -6,7 +6,7 @@
 # @FileName:  wrapper.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-05-15 18:39:10
+# @Last Modified time: 2017-05-22 14:07:01
 """
 import time
 import requests
@@ -71,17 +71,17 @@ def wrap():
 @Wrapper(encoding='utf-8')
 def request(url, xpath=None):
     """ :type xpath: object """
+    print(xpath)
     return requests.get(url)
 
 if __name__ == '__main__':
-    # print(request('http://testerlife.com', xpath='//p/text()'))
+    print(request('http://testerlife.com', xpath='//a[@class="article-title"]/text()'))
     # print(request('http://testerlife.com', xpath='//div[@class="article-meta"]/a/@href'))
     # print(request('http://www.readers365.com/laoshewenji/lzdz/index.html', xpath='//a/@href'))
     # text = ''.join(request(
     #     'https://testerhome.com/topics/2',
     #     xpath='//div[@class="panel-body markdown markdown-toc"]//text()')
     # )
-    select * from joke
     # print(','.join(text.split()))
     # __wrapper = wrap
     # __wrapper()

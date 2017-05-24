@@ -6,7 +6,7 @@
 # @FileName:  practice.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-24 06:50:10
+# @Last Modified time: 2017-05-24 06:52:40
 """
 
 
@@ -41,6 +41,6 @@ class ReadFile:
 
 if __name__ == '__main__':
     read_file = ReadFile()
-    # read_file.get_score()
-    # read_file.get_username_startswith_l()
+    read_file.get_score()
+    read_file.get_username_startswith_l()
     read_file.modify_uppercase()

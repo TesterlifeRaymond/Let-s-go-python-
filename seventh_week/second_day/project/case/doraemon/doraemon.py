@@ -13,3 +13,7 @@ class Doraemon(ObjectDict):
     def __init__(self):
         """ pass """
         ObjectDict.__init__(self)
+
+
+class ArbitraryGate(Doraemon):
+    """ pass """

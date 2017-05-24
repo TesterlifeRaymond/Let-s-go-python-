@@ -6,7 +6,7 @@
 # @FileName:  python_data_type.py
 # @Project: devops
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-16 06:58:55
+# @Last Modified time: 2017-05-24 06:55:10
 """
 import json     # import 在python中 是引入包的模块
 
@@ -81,12 +81,12 @@ import json     # import 在python中 是引入包的模块
 # # {key-->("str" or 'int' or [list]) : value --> 任何对象}
 # # list 到底可不可以做dict 的key？？？
 
-# data = {"name": "Ray", "age": "30", "sex": "male"}  # 我们会发现dict的存储是无序的
-# # print(data)
-# # 首先，我们先获取name的值
-# keys = data.keys()  # 获取字典中全部的key
-# values = data.values()
-# all_item = data.items()     # 迭代器
+data = {"name": "Ray", "age": "30", "sex": "male"}  # 我们会发现dict的存储是无序的
+# print(data)
+# 首先，我们先获取name的值
+keys = data.keys()  # 获取字典中全部的key
+values = data.values()
+all_item = data.items()     # 迭代器
 
 # # print("这是keys", keys)       # python3.6以前， dict 类型 是无序的
 # # print("这是values", values)
@@ -121,10 +121,10 @@ import json     # import 在python中 是引入包的模块
 # data = file.read()
 # file.close()
 
-with open('../fifth_day/file/log.log', 'r') as file:
-    data = file.read()
+# with open('../fifth_day/file/log.log', 'r') as file:
+#     data = file.read()
 
-print(data)
+# print(data)
 
 # json to dict or dict to json
 

@@ -6,10 +6,10 @@
 # @FileName:  while_if_and_for.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-04-16 07:10:27
+# @Last Modified time: 2017-05-24 06:56:20
 """
 switch = 1
-#   如果 swich = 真  bool True
+#   如果 switch = 真  bool True
 #   break 跳出循环
 
 # while switch:

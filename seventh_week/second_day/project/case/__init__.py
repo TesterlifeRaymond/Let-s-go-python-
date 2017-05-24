@@ -7,4 +7,5 @@
 """
 
 from .doraemon.doraemon import Doraemon
+from .doraemon.doraemon import ArbitraryGate
 from .nbmock import NbMock

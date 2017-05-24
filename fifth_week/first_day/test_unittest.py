@@ -6,7 +6,7 @@
 # @FileName:  test_unittest.py
 # @Project: Let-s-go-python-
 # @Last Modified by:   Ray
-# @Last Modified time: 2017-05-08 10:19:44
+# @Last Modified time: 2017-05-24 06:47:55
 """
 import logging
 import unittest
@@ -50,7 +50,7 @@ class TestUnitTest(unittest.TestCase):
         print('start test test_douban_api')
         result = self.session.get(self.api_url).json()
         self.assertEqual(result.get('id'), '1220562')
-        self.assertEquals(result.get('title'), '满月之夜白鲸现')
+        self.assertEqual(result.get('title'), '满月之夜白鲸现')
         self.assertEqual(type(result.get('tags')), list)
         self.assertIn('片山恭一', result.get('author')[0], 'a in b')
 
